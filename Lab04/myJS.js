@@ -30,17 +30,25 @@ function random_Numbers(randomNumbers){
 }
 
 function evalSum(userGuess,randomNumbers){
+    let flag;
     realResult=randomNumbers[0]+randomNumbers[1];
     if(userGuess==realResult){
-        return true;
+        flag=true;
     }else{
-        return false;
+        flag=false;
     }
+    return flag;
 }
 
 let givenNumber=prompt("Dame un numero: ");
 power_Table(givenNumber)
 let randomNumbers=new Array(2)
 random_Numbers(randomNumbers);
+let startTime=new Date();
 let userGuess=prompt("Cuanto es :"+randomNumbers[0]+"+"+randomNumbers[1]);
-alert(evalSum(userGuess,randomNumbers));
+let finishTime=new Date();
+let dateDiff= Math.floor((finishTime.getTime()-startTime.getTime())/1000 % 60);
+alert(evalSum(userGuess,randomNumbers)+", te tomo:"+dateDiff+"segundos");
+let countZeros=0;
+let countNegatives=0;
+let countGreaterZero=0;
