@@ -11,12 +11,12 @@ function power_Table(givenNumber){
     var tr = document.createElement('tr');
         let tdSquare = document.createElement('td');
         let tdCube = document.createElement('td');
-        let square=i*i
-        let cube=i*i*i
-        tdSquare.appendChild(document.createTextNode(square))
-        tdCube.appendChild(document.createTextNode(cube))
-        tr.appendChild(tdSquare)
-        tr.appendChild(tdCube)
+        let square=i*i;
+        let cube=i*i*i;
+        tdSquare.appendChild(document.createTextNode(square));
+        tdCube.appendChild(document.createTextNode(cube));
+        tr.appendChild(tdSquare);
+        tr.appendChild(tdCube);
     tbdy.appendChild(tr);
     }
     tbl.appendChild(tbdy);
@@ -40,6 +40,20 @@ function evalSum(userGuess,randomNumbers){
     return flag;
 }
 
+function randomArray(auxArray){
+    for(let i=0;i<=auxArray.length;i++){
+        let rand=Math.floor(Math.random() * 1000);
+    }
+}
+
+function count(){
+    let countZeros=0;
+    let countNegatives=0;
+    let countGreaterZero=0;
+}
+
+
+
 let givenNumber=prompt("Dame un numero: ");
 power_Table(givenNumber)
 let randomNumbers=new Array(2)
@@ -48,7 +62,5 @@ let startTime=new Date();
 let userGuess=prompt("Cuanto es :"+randomNumbers[0]+"+"+randomNumbers[1]);
 let finishTime=new Date();
 let dateDiff= Math.floor((finishTime.getTime()-startTime.getTime())/1000 % 60);
-alert(evalSum(userGuess,randomNumbers)+", te tomo:"+dateDiff+"segundos");
-let countZeros=0;
-let countNegatives=0;
-let countGreaterZero=0;
+alert(evalSum(userGuess,randomNumbers)+", te tomo: "+dateDiff+" segundos");
+
