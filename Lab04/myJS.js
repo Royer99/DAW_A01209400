@@ -5,14 +5,14 @@
 */
 function power_Table(givenNumber){
 
-    var tbl = document.getElementById('powerTable');
-    var tbdy = document.createElement('tbody');
-    for (var i=1; i<=givenNumber; i++) {
+    let tbl = document.getElementById('powerTable');
+    let tbdy = document.createElement('tbody');
+    for (let i=1; i<=givenNumber; i++) {
     var tr = document.createElement('tr');
-        var tdSquare = document.createElement('td');
-        var tdCube = document.createElement('td');
-        var square=i*i
-        var cube=i*i*i
+        let tdSquare = document.createElement('td');
+        let tdCube = document.createElement('td');
+        let square=i*i
+        let cube=i*i*i
         tdSquare.appendChild(document.createTextNode(square))
         tdCube.appendChild(document.createTextNode(cube))
         tr.appendChild(tdSquare)
@@ -20,23 +20,27 @@ function power_Table(givenNumber){
     tbdy.appendChild(tr);
     }
     tbl.appendChild(tbdy);
-
 }
-function quick_Quiz(){
+function random_Numbers(randomNumbers){
     let randomNum1=Math.floor(Math.random() * 1000);
     let randomNum2=Math.floor(Math.random() * 1000);
-    document.write("<h3>"+randomNum1+"+"+randomNum2+"= ?</h3>");
+    randomNumbers[0]=randomNum1;
+    randomNumbers[1]=randomNum2;
+    return randomNumbers;
+}
+
+function evalSum(userGuess,randomNumbers){
+    realResult=randomNumbers[0]+randomNumbers[1];
+    if(userGuess==realResult){
+        return true;
+    }else{
+        return false;
+    }
 }
 
 let givenNumber=prompt("Dame un numero: ");
 power_Table(givenNumber)
-//quick_Quiz()
-
-
-/*
-  document.getElementById("powerTable").append="<table><tr><td>Number</td><td>Square</td><td>Cube</td></tr>";
-    for(let i=1;i<=givenNumber;i++){
-        document.write("<tr><td>"+i+"</td>"+"<td>"+i*i+"</td>"+"<td>"+i*i*i+"</td><tr>");
-    }
-    document.write("</table>");
-*/
+let randomNumbers=new Array(2)
+random_Numbers(randomNumbers);
+let userGuess=prompt("Cuanto es :"+randomNumbers[0]+"+"+randomNumbers[1]);
+alert(evalSum(userGuess,randomNumbers));
