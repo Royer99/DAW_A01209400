@@ -41,15 +41,37 @@ function evalSum(userGuess,randomNumbers){
 }
 
 function randomArray(auxArray){
-    for(let i=0;i<=auxArray.length;i++){
-        let rand=Math.floor(Math.random() * 1000);
+    for(let i=0;i<auxArray.length;i++){
+        let rand=Math.floor(Math.random() * 201)-100;
+        auxArray[i]=rand;
     }
 }
+function renderArray(array){
+    let p = document.getElementById('arrayCount');
+    auxString=array.toString();
+    p.appendChild(document.createTextNode(auxString));
+}
 
-function count(){
+function count(array){
     let countZeros=0;
     let countNegatives=0;
     let countGreaterZero=0;
+    for(let i=0;i<array.length;i++){
+        if(array[i]<0){
+            countNegatives++;
+        }else if(array[i]==0){
+            countZeros++;
+        }else{
+            countGreaterZero++;
+        }
+    }
+    let p = document.getElementById('countResult');
+    let arrayResults=new Array(3);
+    arrayResults[0]=countNegatives;
+    arrayResults[1]=countZeros
+    arrayResults[2]=countGreaterZero;
+    let auxString=arrayResults.toString();
+    p.appendChild(document.createTextNode(auxString));
 }
 
 
@@ -63,4 +85,8 @@ let userGuess=prompt("Cuanto es :"+randomNumbers[0]+"+"+randomNumbers[1]);
 let finishTime=new Date();
 let dateDiff= Math.floor((finishTime.getTime()-startTime.getTime())/1000 % 60);
 alert(evalSum(userGuess,randomNumbers)+", te tomo: "+dateDiff+" segundos");
+let auxArray= new Array(10);
+randomArray(auxArray);
+renderArray(auxArray);
+count(auxArray);
 
