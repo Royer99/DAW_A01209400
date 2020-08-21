@@ -73,7 +73,37 @@ function count(array){
     let auxString=arrayResults.toString();
     p.appendChild(document.createTextNode(auxString));
 }
+function fill2dArray(array){
+    let aux
+    for(let i=0;i<10;i++){
+        for(let j=0;j<10;j++){
+            aux=Math.floor(Math.random() * 101);
+            array[i][j]=aux;
+            aux=0;
+        }
+    }
+}
 
+function average(){
+    let grades= new Array(10);
+    for(let i=0;i<10;i++){
+        grades[i]=new Array(10);
+    }
+    console.log(grades)
+    fill2dArray(grades);
+    //renderMatrix(grades);
+    console.log(grades);
+    let averageRes=new Array(10);
+    let accum=0;
+    for(let i=0;i<10;i++){
+        for(let j=0;j<10;j++){
+            accum+=grades[i][j];
+        }
+        averageRes[i]=accum;
+        accum=0;
+    }
+    console.log(averageRes);
+}
 
 
 let givenNumber=prompt("Dame un numero: ");
@@ -89,4 +119,5 @@ let auxArray= new Array(10);
 randomArray(auxArray);
 renderArray(auxArray);
 count(auxArray);
+average();
 
