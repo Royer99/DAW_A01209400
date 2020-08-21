@@ -91,7 +91,6 @@ function average(){
     }
     console.log(grades)
     fill2dArray(grades);
-    //renderMatrix(grades);
     console.log(grades);
     let averageRes=new Array(10);
     let accum=0;
@@ -105,6 +104,11 @@ function average(){
     console.log(averageRes);
 }
 
+function reverse(anyNumber){
+    anyNumber = anyNumber + "";
+    anyNumber=anyNumber.split("").reverse().join("");
+    return anyNumber;
+}
 
 let givenNumber=prompt("Dame un numero: ");
 power_Table(givenNumber)
@@ -120,4 +124,7 @@ randomArray(auxArray);
 renderArray(auxArray);
 count(auxArray);
 average();
+let anyNumber=prompt("Ingresa un numero para invertirlo: ");
+anyNumber=reverse(anyNumber);
+alert(anyNumber);
 
