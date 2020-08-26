@@ -18,7 +18,10 @@ function verifyPasswordRequierements(){
     }else{
         alert("Por favor verifica que tu contraseña cumpla con los estandares minimos");
     }
-
-
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.materialboxed');
+    var instances = M.Materialbox.init(elems, options);
+  });
 
