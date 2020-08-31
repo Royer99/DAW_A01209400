@@ -1,40 +1,68 @@
-function add_Queso(){
-    console.log("hola");
-    obj=document.getElementById("show-guisados").classList.add("is-active"); 
+var quesoList = new Array();
+var migajasList = new Array();
+var flag = 0;
+function appendToList(string) {
+    if (flag == 0) {
+        quesoList.push(string);
+        console.log(quesoList.length);
+    } else {
+        migajasList.push(string);
+    }
 }
 
-function suma(id){
-    
-    let counter=document.getElementById(id).value;
-    counter=parseInt(counter)
-    counter+=1;
-    document.getElementById(id).value=(counter);
+function show_Guisados(type) {
+    obj = document.getElementById("show-guisados").classList.add("is-active");
+    if (type == '1') {
+        console.log(type);
+        aux = document.getElementById("counter").value
+        console.log(aux);
+        console.log(quesoList.length);
+        flag = 0;
+        for(let i=0;i<aux;i++) {
+            alert("Agrega guiso");
+        }
+    } else {
+        flag = 1;
+        console.log("Agrega guisado");
+    }
 }
 
-function resta(id){
-    
-    let counter=document.getElementById(id).value;
-    counter=parseInt(counter)
-    counter-=1;
-    document.getElementById(id).value=(counter);
+function suma(id) {
+
+    let counter = document.getElementById(id).value;
+    counter = parseInt(counter)
+    counter += 1;
+    document.getElementById(id).value = (counter);
 }
 
-function generaCuenta(){
-    let total=0;
-    let subtotal=0;
-    let ham=parseInt(document.getElementById("counter1").value);
-    let hot=parseInt(document.getElementById("counter2").value);
-    let fri=parseInt(document.getElementById("counter3").value);
-    let cuenta=document.getElementById("cuenta");
+function resta(id) {
+
+    let counter = document.getElementById(id).value;
+    counter = parseInt(counter)
+    counter -= 1;
+    document.getElementById(id).value = (counter);
+}
+
+function guisados(type) {
+
+}
+
+function generaCuenta() {
+    let total = 0;
+    let subtotal = 0;
+    let ham = parseInt(document.getElementById("counter1").value);
+    let hot = parseInt(document.getElementById("counter2").value);
+    let fri = parseInt(document.getElementById("counter3").value);
+    let cuenta = document.getElementById("cuenta");
     let li1 = document.createElement('li');
-    li1.setAttribute("class","collection-item");
-    li1.appendChild(document.createTextNode(ham+" Hambuger             "+ham*80));
+    li1.setAttribute("class", "collection-item");
+    li1.appendChild(document.createTextNode(ham + " Hambuger             " + ham * 80));
     let li2 = document.createElement('li');
-    li2.setAttribute("class","collection-item");
-    li2.appendChild(document.createTextNode(hot+" Hot-dog             "+hot*80)); 
+    li2.setAttribute("class", "collection-item");
+    li2.appendChild(document.createTextNode(hot + " Hot-dog             " + hot * 80));
     let li3 = document.createElement('li');
-    li3.setAttribute("class","collection-item");
-    li3.appendChild(document.createTextNode(fri+" fries             "+fri*80)); 
+    li3.setAttribute("class", "collection-item");
+    li3.appendChild(document.createTextNode(fri + " fries             " + fri * 80));
     cuenta.appendChild(li1);
     cuenta.appendChild(li2);
     cuenta.appendChild(li3);

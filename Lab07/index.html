@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
+    <title>Transaction</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
     <link rel="stylesheet" href="./css/myCSS.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,15 +18,10 @@
                             <h3>Queso</h3>
                         </div>
                         <figure class="image image is-square">
-                                <button id="add-queso" onclick="add_Queso()">
+                                <button id="add-queso" onclick="show_Guisados('1')">
                                     <img src="./images/queso.jpg" alt="Gordita">
                                 </button>
                         </figure>
-                            <div class="buttons has-addons">
-                                <button class="button" type="button" onclick="resta('counter1')" ><i class="material-icons">remove</i></button>
-                                <input id="counter1" type="number" min="0" max="100" value="0"></input>
-                                <button class="button" type="button" onclick="suma('counter1')"><i class="material-icons">add</i></button>
-                            </div>
                     </div>
                 </div>
                 <div class="column is-4">
@@ -35,36 +30,16 @@
                             <h3>Migajas</h3>
                         </div>
                         <figure class="image image is-square">
-                                <button id="add-queso" onclick="add_Queso()">
+                                <button id="add-migaja" onclick="show_Guisados('2')">
                                     <img src="./images/migajas.jpg" alt="Gordita">
                                 </button>
                         </figure>
-                            <div class="buttons has-addons">
-                                <button class="button" type="button" onclick="resta('counter2')" ><i class="material-icons">remove</i></button>
-                                <input id="counter2" type="number" min="0" max="100" value="0"></input>
-                                <button class="button" type="button" onclick="suma('counter2')"><i class="material-icons">add</i></button>
-                            </div>
                     </div>
                 </div>
                 <div class="column is-4">
                     <nav class="panel">
                         <p class="panel-heading">
-                          Repositories
-                        </p>
-                        <div class="panel-block">
-                          <p class="control has-icons-left">
-                            <input class="input" type="text" placeholder="Search">
-                            <span class="icon is-left">
-                              <i class="fas fa-search" aria-hidden="true"></i>
-                            </span>
-                          </p>
-                        </div>
-                        <p class="panel-tabs">
-                          <a class="is-active">All</a>
-                          <a>Public</a>
-                          <a>Private</a>
-                          <a>Sources</a>
-                          <a>Forks</a>
+                          Resumen
                         </p>
                         <a class="panel-block is-active">
                           <span class="panel-icon">
@@ -107,8 +82,8 @@
                           remember me
                         </label>
                         <div class="panel-block">
-                          <button class="button is-link is-outlined is-fullwidth">
-                            Reset all filters
+                          <button class="button is-success is-outlined is-fullwidth">
+                            Aceptar
                           </button>
                         </div>
                       </nav>
@@ -121,13 +96,19 @@
             <div class="modal-background"></div>
             <div class="modal-content">
                 <div class="container">
+                    <div class="buttons has-addons">
+                        <button class="button" type="button" onclick="resta('counter')" ><i class="material-icons">remove</i></button>
+                        <input id="counter" type="number" min="0" max="100" value="1"></input>
+                        <button class="button" type="button" onclick="suma('counter')"><i class="material-icons">add</i></button>
+                    </div>
                     <div class="buttons">
-                        <button class="button is-info is-large">Carne de puerco</button>
-                        <button class="button is-info is-large">Chicharron</button>
-                        <button class="button is-info is-large">Chorizo/papas</button>
-                        <button class="button is-info is-large">Picadillo</button>
-                        <button class="button is-info is-large">Pollo</button>
-                        <button class="button is-info is-large">Nopales</button>
+                        <button class="button is-info is-large" onclick="appendToList('Carne de puerco')">Carne de puerco</button>
+                        <button class="button is-info is-large" onclick="appendToList('Chicharron')">Chicharron</button>
+                        <button class="button is-info is-large" onclick="appendToList('Chorizo/papas')">Chorizo/papas</button>
+                        <button class="button is-info is-large" onclick="appendToList('Picadillo')">Picadillo</button>
+                        <button class="button is-info is-large" onclick="appendToList('Pollo')">Pollo</button>
+                        <button class="button is-info is-large" onclick="appendToList('Nopales')">Nopales</button>
+                        <button class="button is-info is-large" onclick="appendToList('Nada')">Nada</button>
                     </div>
                 </div>
             </div>
