@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  </head>
+  <body>
+    <section class="section" id="showcase">
+        <div class="container">
+            <div class="columns is-multiline">
+                <div class="column is-4">
+                    <div class="box">
+                        <figure class="image image is-square">
+                                <button id="add-queso" onclick="add_Queso()">
+                                    <img src="./images/queso.jpg" alt="Hamburger">
+                                </button>
+                        </figure>
+                        <h3>Queso</h3>
+                    </div>
+                </div>
+                <div class="column is-4">
+                    <div class="box">
+                        <figure class="image image is-square">
+                            <img src="./images/migajas.jpg" alt="Hamburger">
+                        </figure>
+                        <h3>Migajas</h3>
+                    </div>
+                </div>
+                <div class="column is-4">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="modal" id="show-guisados">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="container">
+                    <div class="columns is-multiline">
+                        <div class="column is-4">
+                            <div class="box">
+                                <figure class="image is-square">
+                                        <button id="add-queso" onclick="add_Queso()">
+                                            <img src="./images/queso.jpg" alt="Hamburger">
+                                        </button>
+                                </figure>
+                                <h3>Queso</h3>
+                            </div>
+                        </div>
+                        <div class="column is-4">
+                            <div class="box">
+                                <figure class="image is-square">
+                                    <img src="./images/migajas.jpg" alt="Hamburger">
+                                </figure>
+                                <h3>Migajas</h3>
+                            </div>
+                        </div>
+                        <div class="column is-4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+          </div>
+    </section>
+    <script src="./js/myJS.js"></script>
+  </body>
+</html>
