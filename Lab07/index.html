@@ -18,7 +18,7 @@
                             <h3>Queso</h3>
                         </div>
                         <figure class="image image is-square">
-                                <button id="add-queso" onclick="show_Guisados('1')">
+                                <button id="add-queso" onclick="show_Guisados('0')">
                                     <img src="./images/queso.jpg" alt="Gordita">
                                 </button>
                         </figure>
@@ -30,7 +30,7 @@
                             <h3>Migajas</h3>
                         </div>
                         <figure class="image image is-square">
-                                <button id="add-migaja" onclick="show_Guisados('2')">
+                                <button id="add-migaja" onclick="show_Guisados('1')">
                                     <img src="./images/migajas.jpg" alt="Gordita">
                                 </button>
                         </figure>
@@ -42,45 +42,33 @@
                           Resumen
                         </p>
                         <a class="panel-block is-active">
-                          <span class="panel-icon">
-                            <i class="fas fa-book" aria-hidden="true"></i>
-                          </span>
-                          bulma
+                            <div class="content">    
+                                <h3>Queso</h3>
+                                <ol id="noQueso">
+                                </ol>
+                            </div>
                         </a>
-                        <a class="panel-block">
-                          <span class="panel-icon">
-                            <i class="fas fa-book" aria-hidden="true"></i>
-                          </span>
-                          marksheet
+                        <a class="panel-block is-active">
+                            <div class="content">
+                                <h3>Migajas</h3>
+                                <ol id="noMigajas">
+                                </ol>
+                            </div>
                         </a>
-                        <a class="panel-block">
-                          <span class="panel-icon">
-                            <i class="fas fa-book" aria-hidden="true"></i>
-                          </span>
-                          minireset.css
-                        </a>
-                        <a class="panel-block">
-                          <span class="panel-icon">
-                            <i class="fas fa-book" aria-hidden="true"></i>
-                          </span>
-                          jgthms.github.io
-                        </a>
-                        <a class="panel-block">
-                          <span class="panel-icon">
-                            <i class="fas fa-code-branch" aria-hidden="true"></i>
-                          </span>
-                          daniellowtw/infboard
-                        </a>
-                        <a class="panel-block">
-                          <span class="panel-icon">
-                            <i class="fas fa-code-branch" aria-hidden="true"></i>
-                          </span>
-                          mojs
+                        <a class="panel-block is-active" id="Subtotal">
+                            <div class="content">
+                                <h4>Subtotal</h4>
+                            </div>
                         </a>
                         <label class="panel-block">
-                          <input type="checkbox">
-                          remember me
-                        </label>
+                            <input type="checkbox">
+                            Envio
+                          </label>
+                          <a class="panel-block is-active" id="Subtotal">
+                            <div class="content">
+                                <h4>Total</h4>
+                            </div>
+                        </a>
                         <div class="panel-block">
                           <button class="button is-success is-outlined is-fullwidth">
                             Aceptar
@@ -94,11 +82,11 @@
     <section>
         <div class="modal" id="show-guisados">
             <div class="modal-background"></div>
-            <div class="modal-content">
+            <div class="modal-content is-clipped">
                 <div class="container">
                     <div class="buttons has-addons">
                         <button class="button" type="button" onclick="resta('counter')" ><i class="material-icons">remove</i></button>
-                        <input id="counter" type="number" min="0" max="100" value="1"></input>
+                        <input id="counter" type="number" min="0" max="100" value="0"></input>
                         <button class="button" type="button" onclick="suma('counter')"><i class="material-icons">add</i></button>
                     </div>
                     <div class="buttons">
@@ -110,6 +98,7 @@
                         <button class="button is-info is-large" onclick="appendToList('Nopales')">Nopales</button>
                         <button class="button is-info is-large" onclick="appendToList('Nada')">Nada</button>
                     </div>
+                    <button class="button is-success" onclick="registerTrans()">Aceptar</button>
                 </div>
             </div>
             <button class="modal-close is-large" aria-label="close"></button>
