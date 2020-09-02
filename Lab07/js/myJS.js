@@ -56,8 +56,26 @@ function resta(id) {
     counter -= 1;
     document.getElementById(id).value = (counter);
 }
+function changeButton(b){
+    if(b.classList.value=="button1"){
+        b.classList.remove("button1");
+        b.classList.add("button2");
+    }else{
+        b.classList.remove("button2");
+        b.classList.add("button1");
+    }
+    
+}
 
-
+function removeElement(b){
+    aux=b.parentNode;
+    if(aux.parentNode.id=="noQueso"){
+        quesoList.pop(b.value);
+    }else{
+        migajasList.pop(b.value);
+    }
+    generaCuenta();
+}
 function displayCuenta(){
     quesos=document.getElementById("noQueso");
     migajas=document.getElementById("noMigajas");
@@ -65,12 +83,24 @@ function displayCuenta(){
     migajas.innerHTML = "";
     for(let i=0;i<quesoList.length;i++){
         let li=document.createElement("li");
-        li.appendChild(document.createTextNode(quesoList[i]));
+        let button=document.createElement("button");
+        button.classList.add("button1");
+        button.setAttribute("onmouseover","changeButton(this)");
+        button.setAttribute("onmouseout","changeButton(this)");
+        button.setAttribute("onclick","removeElement(this)");
+        button.appendChild(document.createTextNode(quesoList[i]));
+        li.appendChild(button);
         quesos.appendChild(li);
     }
     for(let i=0;i<migajasList.length;i++){
         let li=document.createElement("li");
-        li.appendChild(document.createTextNode(migajasList[i]));
+        let button=document.createElement("button");
+        button.classList.add("button1");
+        button.setAttribute("onmouseover","changeButton(this)");
+        button.setAttribute("onmouseout","changeButton(this)");
+        button.setAttribute("onclick","removeElement(this)");
+        button.appendChild(document.createTextNode(migajasList[i]));
+        li.appendChild(button);
         migajas.appendChild(li);
     }
 }
