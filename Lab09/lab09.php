@@ -73,9 +73,21 @@
             <script type="text/javascript">
                 function getNumber(){
                     let number=document.getElementByID("UserNumber").value;
-                    alert(number);
+                    number.post("index.php", {number1: number});
                 }
             </script>');
+            
+            if(isset($_GET['data'])){
+                $number=$_GET['data'];
+                echo("<table>");
+                for($i=1;$i<=$number;$i++){
+                    echo("<tr>");
+                        echo("<td>"."<b>".$i."</b>"." ".$i*$i."</td>");
+                        echo("<td>".$i*$i*$i."</td>");
+                    echo("</tr>");
+                }
+                echo("</table>");
+            }
     }
 
     function main(){
@@ -84,8 +96,6 @@
         displayContent($dataset1);
         displayContent($dataset2);
         powerTable();
-        $result = $_GET['data'];
-        echo("$result");
     }
 main();
 ?>
