@@ -1,0 +1,33 @@
+¿Que muestra la instrucción sp_help materiales?
+muestra una 3 relaciones, para la primera el dominio es el siguiente.
+    -Column_name.
+    -Type.
+    -Computed.
+    -Length.
+    -Prec.
+    -Scale.
+    -etc.
+
+los registros son los atributos de la tabla de materiales.
+La segunda relacion es RowGuidCol
+La tercera relacion es Data_located_on_filegroup
+
+¿Qué efecto tuvo esta acción "Ejecuta las instrucciones que contiene el archivo crear.sql"?
+El query contiene las instrucciones para crear las 4 tablas por lo que despues de ejecutarlo 
+se crean las 4 tablas de nueva cuenta.
+
+¿Qué utilidad tiene esta manera de ejecutar los comandos de SQL?
+Ahorra mucho trabajo manual pero sobre todo, forza a que el diseño logico se realize de manera adecuada
+pues si se falla en la definicion de las tablas a la hora de realizar la carga de datos no va a funcionar 
+adecuadamente.
+
+¿Qué relación tienen con las tablas de la base de datos?
+Son los registro para cada una de las tablas, por lo que su formato se apega a definicion de cada una de las
+tablas.
+
+¿Qué relación tiene el contenido de este archivo (materiales.sql) con el formato en que se encuentran los datos en el archivo materiales.csv?
+Son registros que se pueden cargar a la tabla de materiales, el csv esta creado de forma que cada campo corresponda con su atributo,
+para que cuando se mande a llamar la carga masiva y se definan las reglas de carga como delimitadores, no exista problema.
+
+¿Qué sucedió "SELECT  * FROM Materiales"?
+la consulta devuelve la relacion materiales con los 42 registros cargados.
