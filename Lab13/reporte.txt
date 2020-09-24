@@ -1,0 +1,74 @@
+INSERT INTO Materiales values(1000, 'xxx', 1000)
+Revisa el contenido de la tabla materiales y determina si existe alguna inconsistencia en el contenido de la tabla. 
+¿Cuál es? ¿A qué se debe?
+
+    En efecto existe una incosistencia puesto que al ejecutar la sentencia:
+    select * from Materiales where Materiales.Clave=1000
+    devuelve que existen dos registros con la misma clave, lo cual no garantiza unicidad.
+    Se requiere definir una llave primaria.
+
+Agrega nuevamente el registro a la tabla de materiales:
+  INSERT INTO Materiales values(1000, 'xxx', 1000)
+¿Qué ocurrió?
+
+    Indica que se existe una violacion de la llave primaria condicional llaveMateriales, no 
+    inserta el registro puesto que detecta una llave duplicada.
+
+sp_helpconstraint materiales
+¿Qué información muestra esta consulta?
+
+    devuelve una relacion de las condiciones que se han definido para la tabla de Materiales,
+    en este caso solo contamos con la llave primaria de llaveMateriales.
+
+¿Qué sentencias utilizaste para definir las llaves primarias?
+
+ALTER TABLE Materiales add constraint llaveMateriales PRIMARY KEY (Clave)
+ALTER TABLE Proveedores add constraint llaveProvedores PRIMARY KEY (RFC)
+ALTER TABLE Proyectos add constraint  llaveProyectos PRIMARY KEY (Numero)
+ALTER TABLE Entregan add constraint  llaveEntregan PRIMARY KEY (Clave,RFC,Numero,Fecha)
+
+Intenta insertar en la tabla entregan el siguiente registro:
+  INSERT INTO entregan values (0, 'xxx', 0, '1-jan-02', 0) ;
+
+¿Qué particularidad observas en los valores para clave, rfc y numero?
+    No son registro validos en las tablas de Materiales,Proveedores,Proyectos
+    Ademas de que el rfc no deberia de insertarse puesto que no es varchar sino char(13)
+¿Cómo responde el sistema a la inserción de este registro?
+    
+    Lo inserto sin problema puesto que no se han definido las llaves foraneas.
+
+Intenta nuevamente la inserción del registro inconsistente.
+¿Qué significa el mensaje que emite el sistema?
+    
+    Que no se puede insertar puesto que existen un conflicto con las llaver foraneas entre Entregan y Materiales
+
+¿Qué significado tiene la sentencia anterior?
+    
+    Se crea la llave foranea en entrega para que se relacione con Materiales.
+
+sp_helpconstraint tableName
+¿Qué significan las columnas de esas consultas?
+    
+¿Qué uso se le está dando a GETDATE()?
+
+    Devuelve el la fecha a la hora en que se realizo la llamda,
+    la fecha y la hora son las del servidor.
+
+¿Tiene sentido el valor del campo de cantidad?
+
+    No, es absurdo tener un registro de un material cuya cantidad se entrego 0.
+
+¿Cómo responde el sistema?
+
+    The INSERT statement conflicted with the CHECK constraint "cantidad". 
+    The conflict occurred in database "a1209400", table "a1209400.Entregan", column 'Cantidad'.
+
+¿Qué significa el mensaje?
+    
+    Que no se puede insertar el registro puesto que existe un conflicto 
+    con la restriccion de check cantidad en la tabla de entregan.
+    Se espera que el campo sea mayor que 0.
+
+
+
+
