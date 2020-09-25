@@ -11,6 +11,7 @@ main {
 body {
     background-image: url("../images/space.jpg");
     background-color: #cccccc;
+    color: #ffffff;
 }
 
 .card{
