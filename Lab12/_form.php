@@ -2,9 +2,9 @@
     <div class="container" width="70%" >
     <h3>Bienvenido  <?php
         //session_start();
-        if(isset($_POST["user"])){
+        if(isset($_SESSION["user"])){
           
-        echo $_POST["user"];
+        echo $_SESSION["user"];
       }
     ?></h3>
     <h3>
