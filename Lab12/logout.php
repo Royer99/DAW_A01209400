@@ -1,8 +1,10 @@
 <?php
     session_start();
+    $_POST["user"]=$_SESSION["user"];
+    session_unset();
     session_destroy();
     include_once("_header.html");
     include_once("_navbar.html");
-    //include_once(_bye.html);
+    include_once("_bye.php");
     include_once("_footer.html");
 ?>

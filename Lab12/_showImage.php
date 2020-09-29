@@ -1,0 +1,1 @@
+<img class="materialboxed" width="650" src="<?php echo $_SESSION['imagePath'];?>">
