@@ -1,0 +1,15 @@
+<?php
+    session_start(); 
+    if(isset($_POST["user"])){
+        $_SESSION["user"]=$_POST["user"];
+    }
+    if(isset($_POST["passwrd"])){
+        $_SESSION["passwrd"]=$_POST["passwrd"];
+    }
+    include_once("verifyAccount.php");
+    if(veryAccount()&&veryPasswrd()){
+        header("Location:http://127.0.0.1/dashboard.php");
+    }else{
+        include_once("invalidUser.php");
+    }    
+?>
