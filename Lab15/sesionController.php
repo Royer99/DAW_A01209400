@@ -1,0 +1,10 @@
+<?php
+    session_start(); 
+    require_once("util.php");
+    if(isUser($_POST["user"])&&veryPass($_POST["user"],$_POST["passwrd"])){
+        $_SESSION["user"]=$_POST["user"];
+        header("Location:http://127.0.0.1/dashboard.php");
+    }else{
+        include_once("invalidUser.php");
+    }
+?>
