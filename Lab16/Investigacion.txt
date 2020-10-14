@@ -1,0 +1,30 @@
+Oracle
+-Requerimientos Generales de Hardware:
+-Ambientes o plataformas en las que puede operar:
+	Anteriormente el DBMS de oracle trabajaba sobre Solaris, actualmente soporta varias distribuciones de Linux, revisando en los foros es recomendad usar la propia distro de oracle (Oracle Linux) 
+-Costos de implementacion y mantenimiento:
+	between $92-$460 for personal use and $4,750-$47,500 for enterprise bus	inesses
+-Ventajas y desvenjatas de su uso:
+-Porcentaje del mercado que controla:
+	
+
+SQL Server
+-Requerimientos Generales de Hardware:
+-Ambientes o plataformas en las que puede operar:
+-Costos de implementacion y mantenimiento:
+-Ventajas y desvenjatas de su uso:
+-Porcentaje del mercado que controla:
+
+MySql
+-Requerimientos Generales de Hardware:
+-Ambientes o plataformas en las que puede operar:
+-Costos de implementacion y mantenimiento:
+-Ventajas y desvenjatas de su uso:
+-Porcentaje del mercado que controla:
+
+DBMS no relacional
+-Requerimientos Generales de Hardware:
+-Ambientes o plataformas en las que puede operar:
+-Costos de implementacion y mantenimiento:
+-Ventajas y desvenjatas de su uso:
+-Porcentaje del mercado que controla:

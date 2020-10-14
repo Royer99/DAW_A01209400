@@ -1,0 +1,57 @@
+if exists(select * from INFORMATION_SCHEMA.TABLES where TABLE_NAME='Carrera')
+drop table Carrera
+create table Carrera(
+    Codigo varchar(4) not null,
+    Nombre varchar(50),
+)
+
+if exists(select * from INFORMATION_SCHEMA.TABLES where TABLE_NAME='Alumno')
+drop table Alumno
+create table Alumno(
+    Matricula varchar(9) not null,
+    Nombre varchar(50),
+    ApellidoP varchar (50),
+    AMaterno varchar (50),
+    Codigo varchar(4)
+)
+--llaves primarias y foranea
+ALTER TABLE Carrera add constraint llaveCarrera PRIMARY KEY (Codigo)
+ALTER TABLE Alumno add constraint llaveAlumno PRIMARY KEY (Matricula)
+ALTER TABLE Alumno add constraint fkAlumnoCodigoCarrera foreign key (Codigo) references  Carrera(Codigo)
+--eliminar la fg de codigo
+INSERT INTO Carrera values('0001','ISC')
+INSERT INTO Carrera values('0002','LAD')
+INSERT INTO Carrera values('0003','LAE')
+INSERT INTO Carrera values('0004','IC')
+INSERT INTO Carrera values('0005','IMT')
+
+INSERT INTO Alumno values('A01209400','Royer','Arenas','Camacho','0001')
+INSERT INTO Alumno values('A01209401','Roye','Arenas','Camacho','0001')
+INSERT INTO Alumno values('A01209402','Roy','Arenas','Camacho','0001')
+INSERT INTO Alumno values('A01209403','Ro','Arenas','Camacho','0001')
+INSERT INTO Alumno values('A01209404','R','Arenas','Camacho','0001')
+
+Delete from Alumno where Matricula = 'A01209404'
+
+SELECT Descripcion
+FROM Entregan,Proyectos,Materiales
+WHERE Entregan.Numero=Proyectos.Numero AND Entregan.Clave=Materiales.Clave AND Descripcion LIKE 'LA%'
+GROUP BY Descripcion
+ORDER BY Descripcion ASC
+--No exsiten registro del 2010
+SET DATEFORMAT DMY
+SELECT Entregan.RFC, SUM(Cantidad) SUMATOTAL
+FROM Proveedores,Entregan
+WHERE Entregan.RFC=Proveedores.RFC AND Entregan.Fecha BETWEEN '01/01/2003' AND '31/12/2003'
+GROUP BY Entregan.RFC
+ORDER BY SUM(Cantidad) DESC
+
+INSERT INTO Proyectos values(879,'Royer')
+INSERT INTO Proyectos values(878,'Roye')
+INSERT INTO Proyectos values(877,'Roy')
+
+SELECT Numero,Denominacion
+FROM Proyectos
+WHERE Proyectos.Numero NOT IN (SELECT Entregan.Numero
+                             FROM Entregan
+            )
