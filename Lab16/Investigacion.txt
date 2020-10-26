@@ -1,30 +1,105 @@
 Oracle
 -Requerimientos Generales de Hardware:
+	*AMD Opteron, Intel Pentium® at 500 MHz or faster, or Intel EM64T
+	*Minimum 500 MB free disk space for installation, 10 GB recommended
+	*Minimum 1 GB physical memory, 4 GB recommended
 -Ambientes o plataformas en las que puede operar:
-	Anteriormente el DBMS de oracle trabajaba sobre Solaris, actualmente soporta varias distribuciones de Linux, revisando en los foros es recomendad usar la propia distro de oracle (Oracle Linux) 
+	Anteriormente el DBMS de oracle trabajaba sobre Solaris, actualmente soporta varias distribuciones de Linux, revisando en los foros es recomendad usar la propia distro de oracle (Oracle Linux).
+	* Windows Server 2003 SP2
+	*Windows Server 2003 R2+
+	*Windows Server 2008 SP1+
+	*Windows XP SP2+
+	*Windows 7
+	*Solaris 9 Update 9+
+	*Solaris 10 Update 4+
+	*Oracle Linux 4 (UL7+)
+	*Oracle Linux 5 (UL3+)
+	*Red Hat Enterprise Linux 4 (UL7+)
+	*Red Hat Enterprise Linux 5 (UL3+)
+	*SUSE Linux Enterprise Server 10 (SP1+)
+	*SUSE Linux Enterprise Server 11 (all SP levels)
 -Costos de implementacion y mantenimiento:
-	between $92-$460 for personal use and $4,750-$47,500 for enterprise bus	inesses
+	between $92-$460 for personal use and $4,750-$47,500 for enterprise businesses
 -Ventajas y desvenjatas de su uso:
+
 -Porcentaje del mercado que controla:
+	5.87%
 	
 
-SQL Server
+SQL Server(2016/2017)
 -Requerimientos Generales de Hardware:
+	Minimos:
+		* GB of available hard-disk space.
+		*512 MB RAM.
+		*x64 Processor: 1.4 GHz
+		*x64 Processor: AMD Opteron, AMD Athlon 64, Intel Xeon with Intel EM64T support, Intel Pentium IV with EM64T support
 -Ambientes o plataformas en las que puede operar:
+	Require  .NET Framework 4.6 for the Database Engine, Master Data Services, or Replication. SQL Server setup automatically
+	*Windows Server 2019 Datacenter.
+	*Windows Server 2019 Standard.
+	*Windows Server 2016 Essentials.
+	*Windows Server 2012 R2 Standard.
 -Costos de implementacion y mantenimiento:
+	*Standard - CAL $209
+	*Standard - server $899
 -Ventajas y desvenjatas de su uso:
+
 -Porcentaje del mercado que controla:
+	18.06%
+
 
 MySql
 -Requerimientos Generales de Hardware:
+	*CPU: Intel Core or Xeon 3GHz (or Dual Core 2GHz) or equal AMD CPU
+	*Cores: Single (Dual/Quad Core is recommended)
+	*RAM: 4 GB (6 GB recommended)
+	*Graphic Accelerators: nVidia or ATI with support of OpenGL 1.5 or higher
+	*Display Resolution: 1280×1024 is recommended, 1024×768 is minimum.
 -Ambientes o plataformas en las que puede operar:
+	*Windows 7 (64-bit, Professional level or higher)
+	*Mac OS X 10.6.1+
+	*Ubuntu 9.10 + (64bit)
+	*Ubuntu 8.04 + (32bit/64bit)
+	requisitos adicionales:
+	*The Microsoft .NET 3.5 Framework.
+	*Cairo 1.6.0 or later
+	*glib-2.10
+	*libxml-2.6
+	*libsigc++ 2.0
+	*pcre
+	*libzip
 -Costos de implementacion y mantenimiento:
+	free
+	open source under the GPL (GNU General Public License) terms
 -Ventajas y desvenjatas de su uso:
--Porcentaje del mercado que controla:
 
-DBMS no relacional
--Requerimientos Generales de Hardware:
--Ambientes o plataformas en las que puede operar:
--Costos de implementacion y mantenimiento:
--Ventajas y desvenjatas de su uso:
 -Porcentaje del mercado que controla:
+	15.25%
+
+
+DBMS no relacional(MongoDB)
+-Requerimientos Generales de Hardware:
+	*1GB of RAM per 100.000 assets. 
+	*Disk  N = i * (t + 10) + p
+	p: Number of assets that are permanently in the system
+	t: Max number of days an asset is kept in the system after ingestion
+	i: Number of assets ingested per day (24h)
+	N: Total number of assets in the system at any given time.
+-Ambientes o plataformas en las que puede operar:
+	*Amazon Linux 2
+	*Debian 9 and 10
+	*RHEL / CentOS 6, 7, and 8
+	*SLES 12 and 15
+	*Ubuntu LTS 16.04, 18.04, and 20.04
+	*Windows Server 2016 and 2019
+-Costos de implementacion y mantenimiento:
+
+-Ventajas y desvenjatas de su uso:
+
+-Porcentaje del mercado que controla:
+	3.70%
+
+referencias:
+	-https://docs.oracle.com/cd/E24191_01/common/install/system_requirements.html
+	-https://www.datanyze.com/market-share/databases--272
+	-https://docs.microsoft.com/en-us/sql/sql-server/install/hardware-and-software-requirements-for-installing-sql-server?view=sql-server-ver15

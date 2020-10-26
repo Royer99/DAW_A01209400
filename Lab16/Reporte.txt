@@ -1,0 +1,24 @@
+¿Qué resultado obtienes de ejecutar el siguiente código?
+	¿Que resultado obtienes? ¿¿¿???
+	Se concateno  "Que resultado" con "obtines"
+	despues se concatena con  ¿¿¿???
+
+¿Para qué sirve DECLARE?
+	Es una palabra reservada para indicar que se va a declarar una o varias variables.
+
+¿Cuál es la función de @foo?
+	No es una funcion es el nombre de una variable puesto que despues del @ se espera el nombre de la variable
+
+¿Que realiza el operador SET?
+	Es una palabra reservada que se requiere para poder acceder a las variables en este caso para poder posteriomente usar el operador de asignacion pues la variable se declaro pero no se inicializo
+
+Ahora explica el comportamiento, función y resultado de cada una de las siguientes consultas:
+SELECT RFC FROM Entregan WHERE RFC LIKE '[A-D]%';
+	Devuelve todos los RFC que empiezan con la letra A a la D pues es un intervalo y que entregaron materiales
+	
+SELECT RFC FROM Entregan WHERE RFC LIKE '[^A]%';
+	Devuelve todos los RFC que no empiezan con la letra A y que entregaron materiales
+	
+SELECT Numero FROM Entregan WHERE Numero LIKE '___6';
+	Devuelve todos numeros de proyectos a los cuales se entregaron materiales y que ademas el numero de proyecto es de 4 digitos en donde el 4 digito es el 6
+	
