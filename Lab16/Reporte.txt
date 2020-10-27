@@ -1,3 +1,55 @@
+Consultas y resultados
+	-select * from materiales
+		1000,Varilla 3/16,100.00
+		1010,Varilla 4/32,115.00
+		1020,Varilla 3/17,130.00
+		44 registros
+	-select * from materiales where clave=1000
+		1000,Varilla 3/16,100.00
+		1 registro
+	-select clave,rfc,fecha from entregan
+		1000,AAAA800101   ,1998-07-08 00:00:00.000
+		1000,AAAA800101   ,1999-08-08 00:00:00.000
+		1000,AAAA800101   ,2000-04-06 00:00:00.000
+		132 registros
+	-select * from materiales,entregan where materiales.clave = entregan.clave
+		1000,Varilla 3/16,100.00,1000,AAAA800101   ,5000,1998-07-08 00:00:00.000,165.00
+		1000,Varilla 3/16,100.00,1000,AAAA800101   ,5019,1999-08-08 00:00:00.000,254.00
+		132 registros
+	-Si algún material no ha se ha entregado ¿Aparecería en el resultado de esta consulta?
+		no
+	-select * from entregan,proyectos where entregan.numero < = proyectos.numero
+		1000,AAAA800101   ,5000,1998-07-08 00:00:00.000,165.00,5000,Vamos Mexico
+		1200,EEEE800101   ,5000,2000-03-05 00:00:00.000,177.00,5000,Vamos Mexico
+		1188 registros
+	-(select * from entregan where clave=1450)union(select * from entregan where clave=1300)
+		1300,GGGG800101   ,5005,2002-06-10 00:00:00.000,521.00
+		1300,GGGG800101   ,5005,2003-02-02 00:00:00.000,457.00
+		3 registros
+	-¿Cuál sería una consulta que obtuviera el mismo resultado sin usar el operador Unión?
+		select *
+		from Entregan
+		where  clave=1450 or clave=1300
+	-(select clave from entregan where numero=5001)intersect(select clave from entregan where numero=5018)
+		1010
+		1 registro
+	-select * from entregan,materiales
+		1000,AAAA800101   ,5000,1998-07-08 00:00:00.000,165.00,1,Arena,500.00
+		1000,AAAA800101   ,5019,1999-08-08 00:00:00.000,254.00,1,Arena,500.00
+		6468 registros
+	-Plantea ahora una consulta para obtener las descripciones de los materiales entregados en el año 2000.
+		SET DATEFORMAT DMY
+		select Materiales.Descripcion
+		from Entregan,Materiales
+		where Fecha between '01/01/2000' and '31/12/2000'
+		Varilla 3/16
+		Varilla 4/32
+		1372 registros
+	-¿Por qué aparecen varias veces algunas descripciones de material?
+		Poeque se entregaron en repetidas ocaciones ese ano por lo que si no se utiliza un distinct se devuelven todas las repeticiones
+	-¿Qué resultado obtienes en esta ocasión?
+		44 registros
+	
 ¿Qué resultado obtienes de ejecutar el siguiente código?
 	¿Que resultado obtienes? ¿¿¿???
 	Se concateno  "Que resultado" con "obtines"
@@ -22,3 +74,26 @@ SELECT RFC FROM Entregan WHERE RFC LIKE '[^A]%';
 SELECT Numero FROM Entregan WHERE Numero LIKE '___6';
 	Devuelve todos numeros de proyectos a los cuales se entregaron materiales y que ademas el numero de proyecto es de 4 digitos en donde el 4 digito es el 6
 	
+¿Cómo filtrarías rangos de fechas?
+	between '01/01/2000' and '31/12/2000'
+
+SELECT RFC,Cantidad, Fecha,Numero
+FROM [Entregan]
+WHERE [Numero] Between 5000 and 5010 AND
+Exists ( SELECT [RFC]
+FROM [Proveedores]
+WHERE RazonSocial LIKE 'La%' and [Entregan].[RFC] = [Proveedores].[RFC] )
+¿Qué hace la consulta?	
+	Devuelve todos rfc,cantidad,fecha y numero de todos las provedores que han entregado materiales a los proyetos con numero entre el 5000 y 5010, su razon social comienza con La
+	16 registros
+¿Qué función tiene el paréntesis ( ) después de EXISTS?
+	Es la subconsulta 
+Tomando de base la consulta anterior del EXISTS, realiza el query que devuelva el mismo resultado, pero usando el operador IN
+	SELECT RFC,Cantidad, Fecha,Numero
+FROM Entregan
+where  RFC IN (SELECT RFC
+                FROM Proveedores
+                WHERE RazonSocial LIKE 'La%' and Entregan.RFC= Proveedores.RFC AND Entregan.Numero  Between 5000 and 5010)
+¿Qué consulta usarías para obtener el importe de las entregas es decir, el total en dinero de lo entregado, basado en la cantidad de la entrega y el precio del material y el impuesto asignado?
+	SELECT SUM(Cantidad*(Costo+(Costo*PorcentajeImpuesto)/100)) AS Importe
+	FROM  Entregan,Materiales
