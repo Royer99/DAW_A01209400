@@ -3,6 +3,8 @@ $(document).ready(function(){
     //querytipo();
     //updateTable();
     $('select').formSelect();
+    //M.AutoInit();
+    loadtable();
     M.updateTextFields();
     
   });
@@ -35,7 +37,7 @@ $(document).ready(function(){
     $.post("./controllernewzombies_estado.php", {id:id})
     .done(function( data) {
         console.log(data);
-       console.log("se inserto en tabla");
+       console.log("se cargo la tabla");
        loadtable();
   })
   },1000);
@@ -44,11 +46,17 @@ $(document).ready(function(){
 function loadtable(){
     $.get("./controllertabla.php", {})
     .done(function( data ) {
+      console.log(data);
         $("#tablabody").html(data);
     })
 }
+  
+function loadestados(){
+  $.get("./controllerestados.php", {numero:3})
+  .done(function( data ) {
+    console.log(data);
+      //$("#tablabody").html(data);
+  })
+
+}
 $("#enviarzombi").on("click",querynombre);
-loadtable();
-$("#tablabody").change(function(){
-    loadtable()
-})
