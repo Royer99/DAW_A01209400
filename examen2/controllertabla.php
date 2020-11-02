@@ -10,7 +10,7 @@
         while($row=mysqli_fetch_assoc($result)){
             echo "<tr>";
             echo "<td>".$row["nombre"]."</td>";
-            echo "<td>".$row["estado"].$row["fecha"]."<button class='btn waves-effect waves-light' type='button' id=".$string.$row["idzombi"].">"."agregar un estado</button></td>";
+            echo "<td>".$row["estado"].$row["fecha"]."<button class='btn waves-effect waves-light' type='button' id=".$string.$row["idzombi"].">"."agregar un </button></td>";
             echo "</tr>";
         }
     }
