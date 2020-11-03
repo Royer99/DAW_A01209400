@@ -1,0 +1,17 @@
+body{
+  background-image: url("./anastasia-sidorova-NBTlCDCXigU-unsplash.jpg");
+  background-color: #cccccc;
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+.card{
+    border-radius: 5%;
+}
+
+label{
+    color: black;
+    font-size: 1.2rem;
+}
